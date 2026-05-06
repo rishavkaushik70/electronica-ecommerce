@@ -36,17 +36,24 @@ This project was built with a focus on:
 ## Tech Stack
 
 ### Frontend
+<<<<<<< HEAD
 
+=======
+>>>>>>> 184a8e6917a34dfb52319ca5a35543b5d9ae66e4
 - React
 - Vite
 - Tailwind CSS
 
 ### State Management
+<<<<<<< HEAD
 
+=======
+>>>>>>> 184a8e6917a34dfb52319ca5a35543b5d9ae66e4
 - Redux Toolkit
 - React Redux
 
 ### Routing
+<<<<<<< HEAD
 
 - React Router DOM
 
@@ -56,6 +63,14 @@ This project was built with a focus on:
 
 ### UI / Animations
 
+=======
+- React Router DOM
+
+### Authentication
+- Clerk
+
+### UI / Animations
+>>>>>>> 184a8e6917a34dfb52319ca5a35543b5d9ae66e4
 - Swiper
 - Framer Motion
 - React Icons
@@ -122,4 +137,8 @@ npm run dev
 
 ## Author
 
+<<<<<<< HEAD
 Rishav Kaushik
+=======
+Rishanh Kaushik
+>>>>>>> 184a8e6917a34dfb52319ca5a35543b5d9ae66e4
