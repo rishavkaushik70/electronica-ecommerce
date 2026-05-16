@@ -21,13 +21,14 @@ const Navbar = ({ location, fetchLocation }) => {
   };
 
   return (
-    <div className="bg-white py-3 shadow-2xl">
+    <div className="bg-white py-5 shadow-2xl sticky top-0 left-0 w-full z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo section */}
         <div className="flex gap-7 items-center">
           <Link to={"/"}>
-            <h1 className="font-bold text-3xl">
-              <span className="text-red-500 font-serif">Electro</span>nica
+            <h1 className="font-bold text-3xl hover:scale-95 transition-all">
+              <span className="text-red-500 font-serif">Electro</span>
+              nica
             </h1>
           </Link>
           <div
@@ -52,7 +53,10 @@ const Navbar = ({ location, fetchLocation }) => {
               <h1 className="font-semibold mb-4 text-xl flex justify-between">
                 Change location{" "}
                 <span>
-                  <CgCloseO onClick={toggleDropdown} />
+                  <CgCloseO
+                    onClick={toggleDropdown}
+                    className="cursor-pointer"
+                  />
                 </span>
               </h1>
               <button

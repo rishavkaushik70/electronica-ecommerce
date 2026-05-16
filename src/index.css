@@ -7,3 +7,11 @@
   width: 3rem;
   height: 3rem;
 }
+
+/* input color */
+input{
+  background-color: #ffffff;
+  accent-color: red;
+  border: 1px solid #ccc;
+  color: #333;
+}

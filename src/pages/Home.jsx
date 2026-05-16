@@ -1,24 +1,30 @@
+import { useSelector } from "react-redux";
 import Carousel from "../components/Carousel";
 import Category from "../components/Category";
-import useCarousel from "../hooks/useCarousel";
+import Features from "../components/Features";
+import MiddleBanner from "../components/MiddleBanner";
+import Loading from "../assets/Loading.webm";
 
 const Home = () => {
-  const { carouselData, loading } = useCarousel();
-  console.log(carouselData);
+  const { products, loading } = useSelector((state) => state.products);
 
   if (loading)
     return (
-      <div className="animate-pulse font-bold text-4xl text-center mt-50">
-        Loading...
+      <div className="flex items-center justify-center h-100">
+        <video muted autoPlay loop>
+          <source src={Loading} type="video/webm" />
+        </video>
       </div>
     );
-  const categories = [...new Set(carouselData.map((item) => item.category))];
-  console.log(categories);
+
+  const categories = [...new Set(products.map((item) => item.category))];
 
   return (
     <>
-      <Carousel data={carouselData} />
+      <Carousel data={products} />
       <Category categories={categories} />
+      <MiddleBanner />
+      <Features />
     </>
   );
 };

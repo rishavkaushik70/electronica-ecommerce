@@ -15,10 +15,10 @@ const Carousel = ({ data }) => {
       // pagination={{ clickable: true }}
       navigation
     >
-      {data?.slice(0, 7)?.map((item) => (
+      {data?.slice(0, 10)?.map((item) => (
         <SwiperSlide key={item.id}>
-          <div className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] -z-10]">
-            <div className="flex gap-10 justify-center h-150 items-center px-4">
+          <div className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#0f0c29]">
+            <div className="flex gap-10 justify-center h-160 items-center px-4">
               <div className="space-y-6">
                 <h3 className="text-red-500 font-bold font-sans text-xl">
                   Powering Your World With The Best In Electronics.
