@@ -3,7 +3,7 @@ const MiddleBanner = () => {
   return (
     <div className="bg-gray-100 md:py-24">
       <div
-        className="relative max-w-370 mx-auto md:rounded-2xl pt-28 bg-cover h-137.5 md:h-130"
+        className="relative max-w-370 mx-auto md:rounded-2xl pt-28 bg-cover min-h-150 md:h-130"
         style={{
           backgroundImage: `url(${banner})`,
           backgroundAttachment: "fixed",

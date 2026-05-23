@@ -28,6 +28,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false;
         state.products = action.payload;
+        window.scroll(0, 0);
       })
 
       .addCase(fetchProducts.rejected, (state, action) => {

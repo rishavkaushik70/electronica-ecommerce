@@ -3,6 +3,8 @@ import FilterSection from "../components/FilterSection";
 import Loading from "../assets/Loading.webm";
 import ProductCard from "../components/ProductCard";
 import { useState } from "react";
+import Pagination from "../components/Pagination";
+import Loading2 from "../assets/Loading 2.mp4";
 
 const Products = () => {
   const { products } = useSelector((state) => state.products);
@@ -12,15 +14,22 @@ const Products = () => {
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
   const [priceRange, setPriceRange] = useState([0, 5000]);
+  const [page, setPage] = useState(1);
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
+    setPage(1);
   };
   const handleBrandChange = (e) => {
     setBrand(e.target.value);
+    setPage(1);
   };
 
-  const filtereddata = products?.filter((item) => {
+  const pageHandler = (selectedPage) => {
+    setPage(selectedPage);
+  };
+
+  const filteredData = products?.filter((item) => {
     return (
       item.title.toLowerCase().includes(search.toLowerCase()) &&
       (category === "All" || item.category === category) &&
@@ -29,7 +38,7 @@ const Products = () => {
       item.price <= priceRange[1]
     );
   });
-
+  const dynamicPage = Math.ceil(filteredData?.length / 8);
   return (
     <div>
       <div className="max-w-6xl mx-auto px-4 mb-10">
@@ -49,11 +58,28 @@ const Products = () => {
               handleCategoryChange={handleCategoryChange}
               handleBrandChange={handleBrandChange}
             />
-            <div className="grid grid-cols-4 gap-7 mt-10">
-              {filtereddata?.map((items, index) => {
-                return <ProductCard key={index} product={items} />;
-              })}
-            </div>
+            {filteredData?.length > 0 ? (
+              <div className="flex flex-col justify-center items-center">
+                <div className="grid grid-cols-4 gap-7 mt-10">
+                  {filteredData
+                    ?.slice(page * 8 - 8, page * 8)
+                    .map((items, index) => {
+                      return <ProductCard key={index} product={items} />;
+                    })}
+                </div>
+                <Pagination
+                  pageHandler={pageHandler}
+                  page={page}
+                  dynamicPage={dynamicPage}
+                />
+              </div>
+            ) : (
+              <div className="flex items-center justify-center mx-auto my-auto">
+                <video muted autoPlay loop>
+                  <source src={Loading2} type="video/mp4" />
+                </video>
+              </div>
+            )}
           </div>
         ) : (
           <div className="flex items-center justify-center h-100">

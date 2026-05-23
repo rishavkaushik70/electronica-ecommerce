@@ -11,6 +11,7 @@ import Cart from "./pages/Cart.jsx";
 import Contact from "./pages/Contact.jsx";
 import Products from "./pages/Products.jsx";
 import About from "./pages/About.jsx";
+import SingleProduct from "./pages/SingleProduct.jsx";
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/cart", element: <Cart /> },
       { path: "/contact", element: <Contact /> },
       { path: "/products", element: <Products /> },
+      { path: "/products/:id", element: <SingleProduct /> },
       { path: "/about", element: <About /> },
     ],
   },

@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "./store/productSlice";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const { location, loading, fetchLocation } = useLocation();
@@ -13,10 +14,12 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchProducts());
+    window.scrollTo(0, 0);
   }, [dispatch]);
 
   return (
     <>
+      <ScrollToTop />
       <Navbar
         location={location}
         loading={loading}

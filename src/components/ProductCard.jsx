@@ -1,6 +1,8 @@
 import { IoCartOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
   return (
     <div className="border relative border-gray-100 rounded-2xl cursor-pointer hover:scale-105 hover:shadow-2xl transition-all p-2 h-max">
       <img
@@ -8,6 +10,7 @@ const ProductCard = ({ product }) => {
         src={product.images?.[0]}
         alt={product.title}
         className="bg-gray-100 aspect-square"
+        onClick={() => navigate(`/products/${product.id}`)}
         onError={(e) => {
           e.target.src = "https://via.placeholder.com/400x300?text=No+Image";
         }}
