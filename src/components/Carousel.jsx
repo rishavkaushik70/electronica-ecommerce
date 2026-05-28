@@ -2,10 +2,12 @@ import SwiperCore from "swiper";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
+import { useNavigate } from "react-router-dom";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const Carousel = ({ data }) => {
+  const navigate = useNavigate();
   return (
     <Swiper
       slidesPerView={1}
@@ -29,7 +31,10 @@ const Carousel = ({ data }) => {
                 <p className="md:w-125 line-clamp-3 text-gray-400 pr-7">
                   {item.description}
                 </p>
-                <button className="bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md cursor-pointer mt-2">
+                <button
+                  className="bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md cursor-pointer mt-2"
+                  onClick={() => navigate("/products")}
+                >
                   Shop now
                 </button>
               </div>
@@ -38,7 +43,8 @@ const Carousel = ({ data }) => {
                   <img
                     src={item.images?.[0]}
                     alt={item.title}
-                    className="w-[85%] h-[90%] object-contain"
+                    className="w-[85%] h-[90%] object-contain cursor-pointer"
+                    onClick={() => navigate(`/products/${item.id}`)}
                     onError={(e) => {
                       e.target.src =
                         "https://via.placeholder.com/400x300?text=No+Image";

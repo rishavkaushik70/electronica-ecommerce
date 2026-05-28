@@ -10,6 +10,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 const Navbar = ({ location, fetchLocation }) => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const toggleDropdown = () => {
@@ -19,6 +20,7 @@ const Navbar = ({ location, fetchLocation }) => {
     await fetchLocation();
     setOpenDropdown(false);
   };
+  const { cartItem } = useSelector((state) => state.cart);
 
   return (
     <div className="bg-white py-5 shadow-2xl sticky top-0 left-0 w-full z-50">
@@ -110,7 +112,7 @@ const Navbar = ({ location, fetchLocation }) => {
               <IoCartOutline className="h-7 w-7" />
               <span className="bg-red-500 px-2 rounded-full absolute -top-3 -right-3 text-white">
                 {" "}
-                0
+                {cartItem.length}
               </span>
             </Link>
             <div className="ml-10">
