@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentLocation } from "../services/locationService";
+import { toast } from "react-toastify";
 
 const useLocation = () => {
   const [location, setLocation] = useState(null);

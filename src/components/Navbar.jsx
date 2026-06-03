@@ -11,6 +11,11 @@ import {
 } from "@clerk/clerk-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { HiMenuAlt1 } from "react-icons/hi";
+import ResponsiveMenu from "./ResponsiveMenu";
+
 const Navbar = ({ location, fetchLocation }) => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const toggleDropdown = () => {
@@ -19,12 +24,15 @@ const Navbar = ({ location, fetchLocation }) => {
   const handleDetectLocation = async () => {
     await fetchLocation();
     setOpenDropdown(false);
+    toast.success("Successfully detected your Location");
   };
   const { cartItem } = useSelector((state) => state.cart);
 
+  const [openNav, setOpenNav] = useState(false);
+
   return (
-    <div className="bg-white py-5 shadow-2xl sticky top-0 left-0 w-full z-50">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
+    <div className="bg-white py-5 shadow-2xl sticky top-0 left-0 w-full z-50 px-4 md:px-4 lg:px-0">
+      <div className="max-w-6xl mx-auto flex justify-between items-center gap-2 md:gap-0 lg:gap-0">
         {/* Logo section */}
         <div className="flex gap-7 items-center">
           <Link to={"/"}>
@@ -34,7 +42,7 @@ const Navbar = ({ location, fetchLocation }) => {
             </h1>
           </Link>
           <div
-            className="flex gap-2 cursor-pointer text-gray-700 items-center relative"
+            className="md:flex gap-2 cursor-pointer text-gray-700 items-center relative hidden"
             onClick={toggleDropdown}
           >
             <MapPin className="text-red-500"></MapPin>
@@ -73,7 +81,7 @@ const Navbar = ({ location, fetchLocation }) => {
         <div>
           {/* Menu section */}
           <nav className="flex items-center gap-5">
-            <ul className="flex gap-7 items-center text-xl font-semibold">
+            <ul className="md:flex gap-7 items-center text-xl font-semibold hidden">
               <NavLink
                 to={"/"}
                 className={({ isActive }) =>
@@ -107,7 +115,7 @@ const Navbar = ({ location, fetchLocation }) => {
                 <li>Contact</li>
               </NavLink>
             </ul>
-            <Link to={"/cart"} className="relative">
+            <Link to={"/cart"} className="relative md:block">
               {" "}
               <IoCartOutline className="h-7 w-7" />
               <span className="bg-red-500 px-2 rounded-full absolute -top-3 -right-3 text-white">
@@ -115,7 +123,7 @@ const Navbar = ({ location, fetchLocation }) => {
                 {cartItem.length}
               </span>
             </Link>
-            <div className="ml-10">
+            <div className="ml-10 hidden md:block">
               <SignedOut>
                 <SignInButton>
                   <button className="bg-red-500 font-semibold cursor-pointer px-3 py-1 rounded-md text-white hover:bg-red-600 hover:scale-102 transition-all">
@@ -128,9 +136,22 @@ const Navbar = ({ location, fetchLocation }) => {
                 <UserButton />
               </SignedIn>
             </div>
+            {openNav ? (
+              <HiMenuAlt3
+                className="h-7 w-7 md:hidden"
+                onClick={() => setOpenNav(false)}
+              />
+            ) : (
+              <HiMenuAlt1
+                className="h-7 w-7 md:hidden"
+                onClick={() => setOpenNav(true)}
+              />
+            )}
           </nav>
         </div>
       </div>
+
+      <ResponsiveMenu openNav={openNav} setOpenNav={setOpenNav} />
     </div>
   );
 };

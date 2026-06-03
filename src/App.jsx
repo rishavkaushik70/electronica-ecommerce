@@ -6,7 +6,8 @@ import Footer from "./components/Footer";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "./store/productSlice";
-import ScrollToTop from "./components/ScrollToTop";
+import { ToastContainer } from "react-toastify";
+import ScrollToTop from "react-scroll-to-top";
 
 function App() {
   const { location, loading, fetchLocation } = useLocation();
@@ -19,7 +20,6 @@ function App() {
 
   return (
     <>
-      <ScrollToTop />
       <Navbar
         location={location}
         loading={loading}
@@ -28,6 +28,28 @@ function App() {
       <main>
         <Outlet />
       </main>
+      <ScrollToTop
+        smooth
+        color="white"
+        style={{
+          backgroundColor: "#fa2d37",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Footer />{" "}
     </>
   );

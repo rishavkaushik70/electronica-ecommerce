@@ -5,6 +5,7 @@ import ProductCard from "../components/ProductCard";
 import { useState } from "react";
 import Pagination from "../components/Pagination";
 import Loading2 from "../assets/Loading 2.mp4";
+import MobileFilter from "../components/MobileFilter";
 
 const Products = () => {
   const { products } = useSelector((state) => state.products);
@@ -15,6 +16,7 @@ const Products = () => {
   const [brand, setBrand] = useState("All");
   const [priceRange, setPriceRange] = useState([0, 5000]);
   const [page, setPage] = useState(1);
+  const [openFilter, setOpenFilter] = useState(false);
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
@@ -42,6 +44,22 @@ const Products = () => {
   return (
     <div>
       <div className="max-w-6xl mx-auto px-4 mb-10">
+        <MobileFilter
+          openFilter={openFilter}
+          setOpenFilter={setOpenFilter}
+          categories={categories}
+          brandName={brandName}
+          search={search}
+          setSearch={setSearch}
+          brand={brand}
+          setBrand={setBrand}
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
+          category={category}
+          setCategory={setCategory}
+          handleCategoryChange={handleCategoryChange}
+          handleBrandChange={handleBrandChange}
+        />
         {products?.length > 0 ? (
           <div className="flex gap-8">
             <FilterSection
@@ -60,7 +78,7 @@ const Products = () => {
             />
             {filteredData?.length > 0 ? (
               <div className="flex flex-col justify-center items-center">
-                <div className="grid grid-cols-4 gap-7 mt-10">
+                <div className="grid grid-cols-2 md:grid-cols-4 md:gap-7 gap-2 mt-10">
                   {filteredData
                     ?.slice(page * 8 - 8, page * 8)
                     .map((items, index) => {

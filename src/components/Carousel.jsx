@@ -20,7 +20,7 @@ const Carousel = ({ data }) => {
       {data?.slice(0, 10)?.map((item) => (
         <SwiperSlide key={item.id}>
           <div className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#0f0c29]">
-            <div className="flex gap-10 justify-center h-160 items-center px-4">
+            <div className="flex flex-col gap-10 px-4 py-5 text-center items-center justify-center md:flex-row md:h-160 md:text-left md:py-0 lg:h-170 2xl:h-200">
               <div className="space-y-6">
                 <h3 className="text-red-500 font-bold font-sans text-xl">
                   Powering Your World With The Best In Electronics.
@@ -39,16 +39,12 @@ const Carousel = ({ data }) => {
                 </button>
               </div>
               <div className="flex justify-center items-center">
-                <div className="w-full max-w-138 aspect-square rounded-full flex items-center justify-center shadow-2xl shadow-red-400 hover:scale-105 transition-all">
+                <div>
                   <img
-                    src={item.images?.[0]}
+                    loading="lazy"
+                    src={item.images[0]}
                     alt={item.title}
-                    className="w-[85%] h-[90%] object-contain cursor-pointer"
-                    onClick={() => navigate(`/products/${item.id}`)}
-                    onError={(e) => {
-                      e.target.src =
-                        "https://via.placeholder.com/400x300?text=No+Image";
-                    }}
+                    className="rounded-full border py-5 px-5 w-90 hover:scale-105 transition-all shadow-2xl shadow-red-400 md:w-120 2xl:w-170"
                   />
                 </div>
               </div>

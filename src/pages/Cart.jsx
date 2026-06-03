@@ -24,6 +24,9 @@ const Cart = () => {
     (total, item) => total + item.price * item.quantity,
     0,
   );
+  const handleDetectLocation = () => {
+    (fetchLocation, toast.success("Successfully detected your Location"));
+  };
 
   return (
     <div className="mt-10 max-w-6xl mx-auto mb-5 px-4 md:px-0">
@@ -31,14 +34,14 @@ const Cart = () => {
         <div>
           <h1 className="font-bold text-2xl ">My Cart ({cartItem.length})</h1>
           <div>
-            <div className="mt-10">
+            <div className="mt-10 mx-3 md:mx-0">
               {cartItem.map((item, index) => {
                 return (
                   <div
                     key={index}
-                    className="bg-gray-100 p-5 rounded-md flex items-center justify-between mt-3 w-full"
+                    className="bg-gray-100 md:p-5 rounded-md flex items-center justify-between mt-3 w-full"
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center md:gap-4">
                       <img
                         src={item.images?.[0]}
                         alt={item.title}
@@ -87,6 +90,7 @@ const Cart = () => {
                     type="text"
                     value={user?.fullName || ""}
                     className="p-2 rounded-md"
+                    readOnly
                   />
                 </div>
                 <div className="flex flex-col space-y-1">
@@ -96,6 +100,7 @@ const Cart = () => {
                     placeholder="Enter your address"
                     className="p-2 rounded-md"
                     value={location?.address.county || ""}
+                    readOnly
                   />
                 </div>
                 <div className="flex w-full gap-5">
@@ -106,6 +111,7 @@ const Cart = () => {
                       placeholder="Enter your state"
                       className="p-2 rounded-md w-full"
                       value={location?.address.state}
+                      readOnly
                     />
                   </div>
                   <div className="flex flex-col space-y-1 w-full">
@@ -115,6 +121,7 @@ const Cart = () => {
                       placeholder="Enter your postcode"
                       className="p-2 rounded-md w-full"
                       value={location?.address.postcode}
+                      readOnly
                     />
                   </div>
                 </div>
@@ -126,6 +133,7 @@ const Cart = () => {
                       placeholder="Enter your country"
                       className="p-2 rounded-md w-full"
                       value={location?.address.country}
+                      readOnly
                     />
                   </div>
                   <div className="flex flex-col space-y-1 w-full">
@@ -145,7 +153,7 @@ const Cart = () => {
                 </div>
                 <div className="flex justify-center">
                   <button
-                    onClick={fetchLocation}
+                    onClick={handleDetectLocation}
                     className="bg-red-500 text-white px-3 py-2 rounded-md"
                   >
                     Detect Location
