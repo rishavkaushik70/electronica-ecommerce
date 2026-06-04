@@ -4,7 +4,7 @@ const Category = ({ categories }) => {
   const navigate = useNavigate();
   return (
     <div className="bg-[#101829]">
-      <div className="max-w-7xl mx-auto flex flex-wrap gap-4 items-center justify-center md:justify-around py-7 px-4 mt-1">
+      <div className="max-w-7xl mx-auto flex flex-wrap gap-4 items-center justify-center md:justify-around py-7 px-4">
         {categories?.map((item, index) => (
           <div key={index}>
             <button

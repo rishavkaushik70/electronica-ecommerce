@@ -59,7 +59,7 @@ const Navbar = ({ location, fetchLocation }) => {
             <FaCaretDown />
           </div>
           {openDropdown ? (
-            <div className="w-62.5 h-max shadow-2xl z-50 bg-white top-14 left-90 border-2 p-5 border-gray-100 rounded-md absolute">
+            <div className="w-62.5 h-max shadow-2xl z-50 bg-white top-14 left-40 lg:left-55 lg:top-18 border-2 p-5 border-gray-100 rounded-md absolute">
               <h1 className="font-semibold mb-4 text-xl flex justify-between">
                 Change location{" "}
                 <span>

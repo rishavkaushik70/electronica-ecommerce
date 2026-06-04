@@ -39,7 +39,7 @@ const Carousel = ({ data }) => {
                 </button>
               </div>
               <div className="flex justify-center items-center">
-                <div>
+                <div onClick={() => navigate(`/products/${item.id}`)}>
                   <img
                     loading="lazy"
                     src={item.images[0]}

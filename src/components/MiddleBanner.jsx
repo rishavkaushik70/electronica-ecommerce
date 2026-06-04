@@ -21,7 +21,10 @@ const MiddleBanner = () => {
               Discover the latest tech innovations with unbeatable prices and
               free shipping on all orders.
             </p>
-            <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-lg transition duration-300">
+            <button
+              className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-lg transition duration-300"
+              onClick={() => navigate("/products")}
+            >
               Shop Now
             </button>
           </div>
