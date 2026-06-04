@@ -11,7 +11,7 @@ const Home = () => {
   if (loading)
     return (
       <div className="flex items-center justify-center h-100">
-        <video muted autoPlay loop playsInline preload="auto">
+        <video muted autoPlay loop playsInline preload="auto" controls={false}>
           <source src={Loading} type="video/webm" />
         </video>
       </div>

@@ -101,7 +101,7 @@ const Products = () => {
           </div>
         ) : (
           <div className="flex items-center justify-center h-100">
-            <video muted autoPlay loop playsInline preload="auto">
+            <video muted autoPlay loop playsInline controls={false}>
               <source src={Loading} type="video/webm" />
             </video>
           </div>
