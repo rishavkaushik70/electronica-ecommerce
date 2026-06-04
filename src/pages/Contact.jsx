@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const Contact = () => {
   return (
     <div className="min-h-screen bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] flex items-center justify-center px-4 py-10">

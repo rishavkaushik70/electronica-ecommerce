@@ -12,6 +12,7 @@ import {
   decreaseQuantity,
 } from "../store/cartProductSlice";
 import Emptycart from "../assets/empty-cart.png";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { cartItem } = useSelector((state) => state.cart);
@@ -90,7 +91,6 @@ const Cart = () => {
                     type="text"
                     value={user?.fullName || ""}
                     className="p-2 rounded-md"
-                    readOnly
                   />
                 </div>
                 <div className="flex flex-col space-y-1">
@@ -120,8 +120,6 @@ const Cart = () => {
                       type="text"
                       placeholder="Enter your postcode"
                       className="p-2 rounded-md w-full"
-                      value={location?.address.postcode}
-                      readOnly
                     />
                   </div>
                 </div>
@@ -218,7 +216,10 @@ const Cart = () => {
                     </button>
                   </div>
                 </div>
-                <button className="bg-red-500 text-white px-3 py-2 rounded-md w-full cursor-pointer mt-3">
+                <button
+                  className="bg-red-500 text-white px-3 py-2 rounded-md w-full cursor-pointer mt-3"
+                  onClick={() => toast.success("Order Placed")}
+                >
                   Proceed to Checkout
                 </button>
               </div>

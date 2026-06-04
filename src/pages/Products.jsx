@@ -4,7 +4,7 @@ import Loading from "../assets/Loading.webm";
 import ProductCard from "../components/ProductCard";
 import { useState } from "react";
 import Pagination from "../components/Pagination";
-import Loading2 from "../assets/Loading 2.mp4";
+import Loading2 from "../assets/Loading 2.webm";
 import MobileFilter from "../components/MobileFilter";
 
 const Products = () => {

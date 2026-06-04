@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { fetchProducts } from "./store/productSlice";
 import { ToastContainer } from "react-toastify";
 import ScrollToTop from "react-scroll-to-top";
+import ScrollToTopPage from "./components/ScrollToTop";
 
 function App() {
   const { location, loading, fetchLocation } = useLocation();
@@ -25,6 +26,7 @@ function App() {
         loading={loading}
         fetchLocation={fetchLocation}
       />
+      <ScrollToTopPage />
       <main>
         <Outlet />
       </main>
