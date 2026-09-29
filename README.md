@@ -1,95 +1,86 @@
-# Electronica
+# Electronica 🛒
 
-> A modern electronics e-commerce web app built with React, Redux, Tailwind CSS, and Clerk authentication.
+A modern electronics e-commerce web application built with React, Redux Toolkit, Tailwind CSS, React Router, and Clerk authentication.
 
-## Overview
+## 🔗 Live Demo
 
-Electronica is a fully functional frontend e-commerce project designed to simulate a real online electronics store.  
-It includes product browsing, category filtering, cart management, wishlist functionality, authentication, and responsive layouts across devices.
+[https://electro-nica.netlify.app/]
 
-This project was built with a focus on:
+---
 
-- clean component architecture
-- reusable code
-- scalable folder structure
-- responsive UI
-- practical state management
+## 📌 Overview
 
-## Features
+Electronica is a frontend e-commerce application designed to simulate a real-world online electronics store.
 
-- Responsive modern e-commerce UI
-- Product carousel / hero section
-- Product listing with reusable cards
-- Category-based product filtering
-- Add to Cart functionality
-- Remove from Cart functionality
-- Quantity update in cart
-- Wishlist management
-- Loading states
-- Image fallback handling
-- Authentication with Clerk
-- Reusable custom hooks
-- Service-based data fetching
-- Responsive navigation bar
-- Multi-page routing
+The application allows users to browse products, filter products by category, manage their cart and wishlist, authenticate securely, and interact with a responsive interface across different screen sizes.
 
-## Tech Stack
+The project was built with a focus on:
+
+- Clean component architecture
+- Reusable components
+- Scalable folder structure
+- Responsive UI
+- Global state management
+- Separation of UI and data-handling logic
+- Practical frontend development patterns
+
+---
+
+##  Features
+
+-  Responsive e-commerce interface
+-  Modern hero section and product carousel
+-  Product listing with reusable product cards
+-  Category-based product filtering
+-  Add to cart
+-  Remove items from cart
+-  Increase/decrease product quantity
+-  Wishlist management
+-  Authentication with Clerk
+-  Loading states
+-  Image fallback handling
+-  Reusable custom hooks
+-  Service-based data fetching
+-  Responsive navigation
+-  Multi-page routing
+-  Mobile, tablet, and desktop support
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
-
-<<<<<<< HEAD
-
-=======
-
-> > > > > > > 184a8e6917a34dfb52319ca5a35543b5d9ae66e4
 
 - React
 - Vite
 - Tailwind CSS
+- JavaScript
 
 ### State Management
-
-<<<<<<< HEAD
-
-=======
-
-> > > > > > > 184a8e6917a34dfb52319ca5a35543b5d9ae66e4
 
 - Redux Toolkit
 - React Redux
 
 ### Routing
 
-<<<<<<< HEAD
-
 - React Router DOM
 
 ### Authentication
 
 - Clerk
 
-### UI / Animations
-
-=======
-
-- React Router DOM
-
-### Authentication
-
-- Clerk
-
-### UI / Animations
-
-> > > > > > > 184a8e6917a34dfb52319ca5a35543b5d9ae66e4
+### UI & Animations
 
 - Swiper
 - Framer Motion
 - React Icons
 - Lucide React
 
-## Project Structure
+---
 
-```bash
+##  Project Structure
+
+```text
 src/
 ├── components/
 ├── pages/
@@ -98,54 +89,3 @@ src/
 ├── store/
 ├── data/
 └── assets/
-```
-
-## Architecture
-
-This project follows a scalable frontend structure:
-
-- **components/** → reusable UI components
-- **pages/** → route-based pages
-- **hooks/** → custom reusable hooks
-- **services/** → API / data handling
-- **store/** → global state management
-- **data/** → structured local product data
-
-This structure keeps business logic, UI, and state clean and maintainable.
-
-## Key Learnings
-
-While building this project, I worked on:
-
-- reusable component design
-- Redux state management
-- service-based data flow
-- custom hooks
-- authentication flow
-- responsive UI design
-- error handling
-- scalable project structure
-
-## Future Improvements
-
-- Search functionality
-- Product details page
-- Payment integration
-- Order management
-- Backend integration
-- Admin dashboard
-- Product reviews
-- Better filtering and sorting
-
-## Run Locally
-
-```bash
-git clone https://github.com/your-username/electronica-ecommerce.git
-cd electronica-ecommerce
-npm install
-npm run dev
-```
-
-## Author
-
-Rishabh Kaushik
